@@ -3,4 +3,4 @@ A script to help me update, upgrade and install my most used software in a quick
 
 Notes
 -------
-The Chrome is a WIP and selecting it will move to the next step of the script.
+The Chrome install option is a WIP and selecting it will move to the next step of the script.
