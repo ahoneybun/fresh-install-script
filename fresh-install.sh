@@ -4,8 +4,6 @@ echo "Welcome to your fresh "
 awk 'FNR==2' /etc/os-release 
 echo "-------------------------------"
 echo ""
-echo ""
-echo "-------------------------------"
 echo "Let's make sure your sources are up to date"
 echo "running apt update"
 echo "-------------------------------"
@@ -27,11 +25,15 @@ echo "Install your browser of choice"
 echo ""
 echo "[1] Chrome WIP"
 echo "[2] Chromuim"
+echo "[3] Vivaldi"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
 if [ "$browserchoice" = "2" ]; then
 sudo -k apt install chromium-browser
+elif [ "$browserchoice" = "3" ]; then
+wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.30-1_amd64.deb 
+sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
 fi
 sleep 1
 clear
@@ -73,6 +75,7 @@ echo "Installing some tools"
 echo ""
 echo "pastebinit, "
 sudo apt install pastebinit
+sleep 1
 clear
 echo "-------------------------------"
 echo "Have a productive and happy day!"
