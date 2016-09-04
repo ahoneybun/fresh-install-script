@@ -8,7 +8,6 @@ echo "Let's make sure your sources are up to date"
 echo "running apt update"
 echo "-------------------------------"
 sleep 3
-clear
 sudo apt update
 sleep 1
 echo "Clearing the screen"
@@ -21,15 +20,15 @@ echo "-------------------------------"
 sudo -k apt upgrade
 sleep 1
 clear
-	if [ $(dpkg-query -W -f='${Status}' mplayer 2>/dev/null | grep -c "ok installed") -eq 0 ];
-	then
-	  echo ""
-	  echo "First we have to install the necessary tools:"
-	  echo ""
-	  echo "  → snapd"
-	  echo ""
+   if [ $(dpkg-query -W -f='${Status}' mplayer 2>/dev/null | grep -c "ok installed") -eq 0 ];
+      then
+	echo ""
+	echo "First we have to install the necessary tools:"
+	echo ""
+	echo "  → snapd"
+	echo ""
 	  sudo apt-get install -qq -y snapd;
-	fi
+   fi
 echo "-------------------------------"
 echo "Install your browser of choice"
 echo ""
@@ -39,12 +38,12 @@ echo "[3] Vivaldi"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
-if [ "$browserchoice" = "2" ]; then
-sudo -k apt install chromium-browser
-elif [ "$browserchoice" = "3" ]; then
-wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
-sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
-fi
+   if [ "$browserchoice" = "2" ]; then
+     sudo -k apt install chromium-browser
+    elif [ "$browserchoice" = "3" ]; then
+     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
+     sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
+   fi
 sleep 1
 clear
 echo "-------------------------------"
@@ -57,16 +56,16 @@ echo "[4] Install all"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read graphicschoice
-if [ "$graphicschoice" = "1" ]; then
-sudo apt install gimp
-elif [ "$graphicschoice" = "2" ]; then
-sudo apt install inkscape
-elif [ "$graphicschoice" = "3" ]; then
-wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
-sudo snap install inkscape_0.91+devel_amd64.snap
-elif [ "$graphicschoice" = "4" ]; then
-sudo apt install gimp inkscape
-fi
+   if [ "$graphicschoice" = "1" ]; then
+    sudo apt install gimp
+     elif [ "$graphicschoice" = "2" ]; then
+      sudo apt install inkscape
+     elif [ "$graphicschoice" = "3" ]; then
+      wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
+      sudo snap install inkscape_0.91+devel_amd64.snap
+     elif [ "$graphicschoice" = "4" ]; then
+      sudo apt install gimp inkscape
+  fi
 sleep 1
 clear
 echo "-------------------------------"
@@ -77,11 +76,11 @@ echo "[2] LibreOffice"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read officechoice
-if [ "$officechoice" = "1" ]; then
-sudo apt install calligra
-elif [ "$officechoice" = "2" ]; then
-sudo apt install libreoffice
-fi
+   if [ "$officechoice" = "1" ]; then
+    sudo apt install calligra
+     elif [ "$officechoice" = "2" ]; then
+      sudo apt install libreoffice
+   fi
 sleep 1
 clear
 echo "-------------------------------"
