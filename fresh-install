@@ -1,0 +1,47 @@
+#!/bin/bash
+
+zenity --title="Fresh Install tool"
+
+# Trying to use this to add system info from the os-release file WIP
+versionStr=$(awk 'FNR==2' /etc/os-release)
+
+# Intro
+zenity --info --text="Welcome to your new Ubuntu system"
+
+# Running 'apt update'
+zenity --info --text="Let's make sure your sources are up to date" 
+zenity --password | sudo -S apt update
+
+# Snapd check then installation
+# -----------------
+   if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
+      then
+	echo ""
+	echo "First we have to install the necessary tools:"
+	echo ""
+	echo "  → snapd"
+	echo ""
+	  sudo apt-get install -qq -y snapd;
+   fi
+
+# Browser choice 
+# -----------------
+browserchoice=$(zenity --list --checklist \
+	--title="browserchoices" --column="Pick" --column="Choices" \
+	FALSE Vivaldi FALSE Chromium FALSE None --separator=":")
+
+if [ "$browserchoice" = "Vivaldi" ]; then
+   wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
+   sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
+
+elif [ "$browserchoice" = "Chromium" ]; then
+   PASSWORD=$(zenity --password)
+   echo $PASSWORD | sudo -S apt install chromium-browser
+
+elif [ "$browserchoice" = "None" ]; then
+   echo "No selection picked"
+   exit 1
+
+fi
+
+
