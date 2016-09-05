@@ -1,8 +1,13 @@
 #!/bin/bash
+# Intro
+# -------------
 echo "-------------------------------"
 echo "Welcome to your fresh "
 awk 'FNR==2' /etc/os-release 
 echo "-------------------------------"
+
+# apt update
+# -------------
 echo ""
 echo "Let's make sure your sources are up to date"
 echo "running apt update"
@@ -13,6 +18,9 @@ sleep 1
 echo "Clearing the screen"
 sleep 2
 clear
+
+# apt upgrade
+# -------------
 echo "-------------------------------"
 echo "Installing upgrades"
 echo "running apt upgrade"
@@ -20,7 +28,10 @@ echo "-------------------------------"
 sudo -k apt upgrade
 sleep 1
 clear
-   if [ $(dpkg-query -W -f='${Status}' mplayer 2>/dev/null | grep -c "ok installed") -eq 0 ];
+
+# Checking if snapd is install, if not it will install it
+# -------------
+   if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
       then
 	echo ""
 	echo "First we have to install the necessary tools:"
@@ -29,6 +40,9 @@ clear
 	echo ""
 	  sudo apt-get install -qq -y snapd;
    fi
+
+# Browser selection
+# -------------
 echo "-------------------------------"
 echo "Install your browser of choice"
 echo ""
@@ -46,6 +60,9 @@ echo -n "Enter choice: "; read browserchoice
    fi
 sleep 1
 clear
+
+# Graphics selection
+# -------------
 echo "-------------------------------"
 echo "Install your graphics software of choice"
 echo ""
@@ -68,6 +85,9 @@ echo -n "Enter choice: "; read graphicschoice
   fi
 sleep 1
 clear
+
+# Office selection
+# -------------
 echo "-------------------------------"
 echo "Install your office suite of choice"
 echo ""
@@ -83,6 +103,9 @@ echo -n "Enter choice: "; read officechoice
    fi
 sleep 1
 clear
+
+# Random useful tools
+# -------------
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
