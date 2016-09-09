@@ -46,17 +46,21 @@ clear
 echo "-------------------------------"
 echo "Install your browser of choice"
 echo ""
-echo "[1] Chrome WIP"
+echo "[1] Chrome"
 echo "[2] Chromuim"
 echo "[3] Vivaldi"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
-   if [ "$browserchoice" = "2" ]; then
+   if [ "$browserchoice" = "1" ]; then 
+     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+     sudo dpkg -i google-chrome-stable_current_amd64.deb
+     sudo apt -f install
+    elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
      wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
-     sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
+     sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
    fi
 sleep 1
 clear
@@ -69,7 +73,7 @@ echo ""
 echo "[1] GIMP"
 echo "[2] Inkscape"
 echo "[3] Inkscape snap"
-echo "[4] Install all"
+echo "[4] Install all Debian versions"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read graphicschoice
@@ -109,8 +113,8 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, "
-sudo apt install pastebinit
+echo "pastebinit, git"
+sudo apt install pastebinit git
 sleep 1
 clear
 echo "-------------------------------"
