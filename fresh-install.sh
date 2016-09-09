@@ -72,7 +72,7 @@ echo "Install your graphics software of choice"
 echo ""
 echo "[1] GIMP"
 echo "[2] Inkscape"
-echo "[3] Inkscape snap"
+echo "[3] Inkscape snap (WIP)"
 echo "[4] Install all Debian versions"
 echo "-------------------------------"
 echo ""
@@ -81,9 +81,9 @@ echo -n "Enter choice: "; read graphicschoice
     sudo apt install gimp
      elif [ "$graphicschoice" = "2" ]; then
       sudo apt install inkscape
-     elif [ "$graphicschoice" = "3" ]; then
-      wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
-      sudo snap install inkscape_0.91+devel_amd64.snap
+#     elif [ "$graphicschoice" = "3" ]; then
+#      wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
+#      sudo snap install inkscape_0.91+devel_amd64.snap
      elif [ "$graphicschoice" = "4" ]; then
       sudo apt install gimp inkscape
   fi
