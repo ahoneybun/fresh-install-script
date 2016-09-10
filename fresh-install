@@ -10,9 +10,9 @@ zenity --info --text="Welcome to your new Ubuntu system"
 
 # Running 'apt update'
 zenity --info --text="Let's make sure your sources are up to date" 
-zenity --password | sudo -S apt update
+zenity --password | sudo -Sk apt update
 
-# Snapd check then installation
+# Snapd installation check
 # -----------------
    if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
       then
@@ -32,7 +32,7 @@ browserchoice=$(zenity --list --checklist \
 
 if [ "$browserchoice" = "Vivaldi" ]; then
    wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
-   sudo dpkg -i vivaldi-stable_1.3.551.30-1_amd64.deb
+   sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
 
 elif [ "$browserchoice" = "Chromium" ]; then
    PASSWORD=$(zenity --password)
