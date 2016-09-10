@@ -114,7 +114,7 @@ echo "-------------------------------"
 echo "Installing some tools"
 echo ""
 echo "pastebinit, git"
-sudo apt install pastebinit git
+sudo apt install pastebinit git bzr
 sleep 1
 clear
 echo "-------------------------------"
