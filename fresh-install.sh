@@ -113,7 +113,7 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, git"
+echo "pastebinit, git, bzr"
 sudo apt install pastebinit git bzr
 sleep 1
 clear
