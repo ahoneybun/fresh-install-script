@@ -28,12 +28,17 @@ zenity --password | sudo -Sk apt update
 # -----------------
 browserchoice=$(zenity --list --checklist \
 	--title="browserchoices" --column="Pick" --column="Choices" \
-	FALSE Vivaldi FALSE Chromium FALSE None --separator=":")
+	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
 
 if [ "$browserchoice" = "Vivaldi" ]; then
    wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
    sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
 
+elif [ "$browserchoice" = "Chrome" ]; then
+   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   sudo dpkg -i google-chrome-stable_current_amd64.deb
+   sudo apt -f install
+   
 elif [ "$browserchoice" = "Chromium" ]; then
    PASSWORD=$(zenity --password)
    echo $PASSWORD | sudo -S apt install chromium-browser
