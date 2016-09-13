@@ -3,6 +3,18 @@ A script to help me update, upgrade and install my most used software in a quick
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
-Notes
+Options
 -------
-The Chrome install option is a WIP and selecting it will move to the next step of the script.
+Browsers
+- [x] Chrome
+- [x] Chromium
+- [x] Vivaldi
+
+Graphics
+- [x] GIMP
+- [x] Inkscape
+- [x] Inkscape snap
+
+Office Suites
+- [x] LibreOffice
+- [x] Calligra
