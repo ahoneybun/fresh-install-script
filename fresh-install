@@ -26,7 +26,7 @@ zenity --password | sudo -Sk apt update
 
 # Browser choice 
 # -----------------
-browserchoice=$(zenity --list --checklist \
+browserchoice=$(zenity --list --width=500 --height=250 --checklist \
 	--title="browserchoices" --column="Pick" --column="Choices" \
 	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
 
