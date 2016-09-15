@@ -2,8 +2,8 @@
 # Intro
 # -------------
 echo "-------------------------------"
-echo "Welcome to your fresh "
-awk 'FNR==2' /etc/os-release 
+echo "Welcome to your fresh" 
+awk 'FNR==2' /etc/os-release
 echo "-------------------------------"
 
 # apt update
@@ -81,9 +81,11 @@ echo -n "Enter choice: "; read graphicschoice
     sudo apt install gimp
      elif [ "$graphicschoice" = "2" ]; then
       sudo apt install inkscape
-#     elif [ "$graphicschoice" = "3" ]; then
-#      wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
-#      sudo snap install inkscape_0.91+devel_amd64.snap
+# By default now you can't install a snap that is *not* signed, use with caution!
+      elif [ "$graphicschoice" = "3" ]; then
+echo "Installing inkscape snap with force as it is *not* signed"
+       wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
+       sudo snap install --force-dangerous inkscape_0.91+devel_amd64.snap
      elif [ "$graphicschoice" = "4" ]; then
       sudo apt install gimp inkscape
   fi
