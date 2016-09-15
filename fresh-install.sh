@@ -73,7 +73,7 @@ echo ""
 echo "[1] GIMP"
 echo "[2] Inkscape"
 echo "[3] Inkscape snap (WIP)"
-echo "[4] Install all Debian versions"
+echo "[4] Install all as Ubuntu/Debian packages"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read graphicschoice
@@ -84,7 +84,7 @@ echo -n "Enter choice: "; read graphicschoice
 # By default now you can't install a snap that is *not* signed, use with caution!
       elif [ "$graphicschoice" = "3" ]; then
 echo "Installing inkscape snap with force as it is *not* signed"
-       wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4308/+files/inkscape_0.91+devel_amd64.snap
+       wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4986/+files/inkscape_0.91+devel_amd64.snap
        sudo snap install --force-dangerous inkscape_0.91+devel_amd64.snap
      elif [ "$graphicschoice" = "4" ]; then
       sudo apt install gimp inkscape
