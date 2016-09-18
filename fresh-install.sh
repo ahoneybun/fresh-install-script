@@ -115,8 +115,12 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, git, bzr"
+echo "pastebinit, git, bzr, virtualbox, rememberthemilk"
 sudo apt install pastebinit git bzr
+wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
+sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+sudo dpkg -i rememberthemilk-1.1.1.deb
 sleep 1
 clear
 echo "-------------------------------"
