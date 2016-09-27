@@ -124,8 +124,8 @@ sudo dpkg -i gitkraken.deb
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, git, bzr, virtualbox, rememberthemilk"
-sudo apt install pastebinit git bzr
+echo "pastebinit, git, bzr, virtualbox, rememberthemilk, htop"
+sudo apt install pastebinit git bzr htop
 
 # Downloading virtualbox and rememberthemilk
   wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
