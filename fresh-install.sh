@@ -110,6 +110,15 @@ echo -n "Enter choice: "; read officechoice
 sleep 1
 clear
 
+# Development tools
+# -------------
+echo "-------------------------------"
+echo "Dev tools"
+echo ""
+echo "GitKraken"
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb -O gitkraken.deb
+sudo dpkg -i gitkraken.deb
+
 # Random useful tools
 # -------------
 echo "-------------------------------"
@@ -117,10 +126,13 @@ echo "Installing some tools"
 echo ""
 echo "pastebinit, git, bzr, virtualbox, rememberthemilk"
 sudo apt install pastebinit git bzr
-wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
-sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-sudo dpkg -i rememberthemilk-1.1.1.deb
+
+# Downloading virtualbox and rememberthemilk
+  wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
+# Installing virtualbox and rememberthemilk
+   sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+   sudo dpkg -i rememberthemilk-1.1.1.deb
 sleep 1
 clear
 echo "-------------------------------"
