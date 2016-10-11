@@ -134,6 +134,10 @@ sudo apt install pastebinit git bzr htop
    sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
    sudo dpkg -i rememberthemilk-1.1.1.deb
 sleep 1
+
+# Fixing dep issues
+# ------------
+sudo apt -f install
 clear
 echo "-------------------------------"
 echo "Have a productive and happy day!"
