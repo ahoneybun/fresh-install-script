@@ -92,6 +92,23 @@ echo "Installing inkscape snap with force as it is *not* signed"
 sleep 1
 clear
 
+# Video and Audio selection
+# -------------
+echo "-------------------------------"
+echo "Install your AV tools of choice"
+echo ""
+echo "[1] kdenlive"
+echo "[1a] kdenlive PPA"
+echo "[1b] kdenlive snap"
+echo "-------------------------------"
+echo ""
+echo -n "Enter choice: "; read avchoice
+    if [ "$avchoice" = "1" ]; then
+    sudo apt install kdenlive
+    fi
+sleep 1
+clear
+
 # Office selection
 # -------------
 echo "-------------------------------"
