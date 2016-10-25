@@ -104,7 +104,9 @@ echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read avchoice
     if [ "$avchoice" = "1" ]; then
-    sudo apt install kdenlive
+     sudo apt install kdenlive
+      elif [ "$avchoice" = "1b" ]; then
+       sudo snap install --edge --force-dangerous --devmode kdenlive-devel
     fi
 sleep 1
 clear
