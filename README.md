@@ -13,7 +13,13 @@ Browsers
 Graphics
 - [x] GIMP
 - [x] Inkscape
-- [x] Inkscape snap
+- [x] Inkscape snap devel
+
+Audio/Video tools
+- [x] kdenlive
+- [x] kdenlive ppa
+- [x] kdenlive snap devel
+- [x] Audacity
 
 Office Suites
 - [x] LibreOffice

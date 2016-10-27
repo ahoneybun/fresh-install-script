@@ -100,6 +100,7 @@ echo ""
 echo "[1] kdenlive"
 echo "[1a] kdenlive PPA"
 echo "[1b] kdenlive snap"
+echo "[2] Audacity"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read avchoice
@@ -111,6 +112,8 @@ echo -n "Enter choice: "; read avchoice
        sudo apt install kdenlive
       elif [ "$avchoice" = "1b" ]; then
        sudo snap install --edge --force-dangerous --devmode kdenlive-devel
+      elif [ "$avchoice" = "2" ]; then
+       sudo apt install audacity
     fi
 sleep 1
 clear
