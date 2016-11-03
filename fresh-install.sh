@@ -168,6 +168,8 @@ sleep 1
 # ------------
 rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb rememberthemilk-1.1.1.deb gitkraken.deb vivaldi-stable_1.3.551.38-1_amd64.deb google-chrome-stable_current_amd64.deb
 
+sleep 1
+clear
 
 # Fixing dep issues
 # ------------
