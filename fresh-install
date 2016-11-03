@@ -26,7 +26,7 @@ zenity --password | sudo -Sk apt update
 
 # Browser choice 
 # -----------------
-browserchoice=$(zenity --list --width=500 --height=250 --checklist \
+browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
 	--title="browserchoices" --column="Pick" --column="Choices" \
 	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
 
@@ -46,8 +46,14 @@ elif [ "$browserchoice" = "Chromium" ]; then
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
-   exit 1
+   graphicchoice
 
 fi
+
+# Graphics choice
+# -----------------
+graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
+    --title="graphicchoice" --column="Pick" --column="Choices" \
+    FALSE GIMP None --separator=":")
 
 
