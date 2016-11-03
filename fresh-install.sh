@@ -101,6 +101,7 @@ echo "[1] kdenlive"
 echo "[1a] kdenlive PPA"
 echo "[1b] kdenlive snap"
 echo "[2] Audacity"
+echo "[3] kdenlive & Audacity"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read avchoice
@@ -114,6 +115,8 @@ echo -n "Enter choice: "; read avchoice
        sudo snap install --edge --force-dangerous --devmode kdenlive-devel
       elif [ "$avchoice" = "2" ]; then
        sudo apt install audacity
+      elif [ "$avchoice" = "3" ]; then
+       sudo apt install kdenlive audacity
     fi
 sleep 1
 clear
@@ -160,6 +163,11 @@ sudo apt install pastebinit bzr htop
    sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
    sudo dpkg -i rememberthemilk-1.1.1.deb
 sleep 1
+
+# Cleaning up
+# ------------
+rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb rememberthemilk-1.1.1.deb gitkraken.deb vivaldi-stable_1.3.551.38-1_amd64.deb google-chrome-stable_current_amd64.deb
+
 
 # Fixing dep issues
 # ------------
