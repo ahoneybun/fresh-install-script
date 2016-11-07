@@ -56,11 +56,13 @@ echo -n "Enter choice: "; read browserchoice
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo dpkg -i google-chrome-stable_current_amd64.deb
      sudo apt -f install
+     rm google-chrome-stable_current_amd64.deb
     elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
      wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
      sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
+     rm vivaldi-stable_1.3.551.38-1_amd64.deb
    fi
 sleep 1
 clear
@@ -86,6 +88,7 @@ echo -n "Enter choice: "; read graphicschoice
 echo "Installing inkscape snap with force as it is *not* signed"
        wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4986/+files/inkscape_0.91+devel_amd64.snap
        sudo snap install --force-dangerous inkscape_0.91+devel_amd64.snap
+       rm inkscape_0.91+devel_amd64.snap
      elif [ "$graphicschoice" = "4" ]; then
       sudo apt install gimp inkscape
   fi
@@ -160,16 +163,11 @@ sudo apt install pastebinit bzr htop
   wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
   wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
-   sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-   sudo dpkg -i rememberthemilk-1.1.1.deb
+   #sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+   #rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+   sudo dpkg -i 
+   rm rememberthemilk-1.1.1.deb
 sleep 1
-
-# Cleaning up
-# ------------
-rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb rememberthemilk-1.1.1.deb gitkraken.deb vivaldi-stable_1.3.551.38-1_amd64.deb google-chrome-stable_current_amd64.deb
-
-sleep 1
-clear
 
 # Fixing dep issues
 # ------------
