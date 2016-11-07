@@ -165,7 +165,7 @@ sudo apt install pastebinit bzr htop
 # Installing virtualbox and rememberthemilk
    #sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
    #rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-   sudo dpkg -i 
+   sudo dpkg -i rememberthemilk-1.1.1.deb
    rm rememberthemilk-1.1.1.deb
 sleep 1
 
