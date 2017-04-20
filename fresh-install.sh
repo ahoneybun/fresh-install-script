@@ -144,30 +144,34 @@ clear
 
 # Development tools
 # -------------
-echo "-------------------------------"
-echo "Dev tools"
-echo ""
-echo "GitKraken"
-wget https://release.gitkraken.com/linux/gitkraken-amd64.deb -O gitkraken.deb
-sudo dpkg -i gitkraken.deb
+#echo "-------------------------------"
+#echo "Dev tools"
+#echo ""
+#echo "GitKraken"
+#wget https://release.gitkraken.com/linux/gitkraken-amd64.deb -O gitkraken.deb
+#sudo dpkg -i gitkraken.deb
 
 # Random useful tools
 # -------------
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, git, bzr, virtualbox, rememberthemilk, htop"
+echo "pastebinit, git, bzr, virtualbox, htop"
 sudo apt install pastebinit bzr htop
 
 # Downloading virtualbox and rememberthemilk
   wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
+#  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
    #sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
    #rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-   sudo dpkg -i rememberthemilk-1.1.1.deb
-   rm rememberthemilk-1.1.1.deb
+#   sudo dpkg -i rememberthemilk-1.1.1.deb
+#   rm rememberthemilk-1.1.1.deb
 sleep 1
+
+# Snaps
+# -------------
+sudo snap install telegram-sergiusens 
 
 # Fixing dep issues
 # ------------
