@@ -67,6 +67,10 @@ echo -n "Enter choice: "; read browserchoice
 sleep 1
 clear
 
+# Communication Tools
+# -------------
+
+
 # Graphics selection
 # -------------
 echo "-------------------------------"
@@ -156,11 +160,11 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, git, bzr, virtualbox, htop"
+echo "pastebinit, bzr, !virtualbox, htop"
 sudo apt install pastebinit bzr htop
 
 # Downloading virtualbox and rememberthemilk
-  wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+#  wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
 #  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
    #sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
