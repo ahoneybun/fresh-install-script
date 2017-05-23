@@ -60,7 +60,7 @@ echo -n "Enter choice: "; read browserchoice
     elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
-     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb 
+     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.9.818.50-1_amd64.deb
      sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
      rm vivaldi-stable_1.3.551.38-1_amd64.deb
    fi
