@@ -49,6 +49,7 @@ echo ""
 echo "[1] Chrome"
 echo "[2] Chromuim"
 echo "[3] Vivaldi"
+echo "[4] All"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
@@ -61,15 +62,34 @@ echo -n "Enter choice: "; read browserchoice
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
      wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.9.818.50-1_amd64.deb
-     sudo dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
-     rm vivaldi-stable_1.3.551.38-1_amd64.deb
+     sudo dpkg -i vivaldi-stable_1.9.818.50-1_amd64.deb
+     rm vivaldi-stable_1.9.818.50-1_amd64.deb
+    elif [ "$browserchoice" = "4" ]; then
+     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+     sudo dpkg -i google-chrome-stable_current_amd64.deb
+     sudo apt -f install
+     rm google-chrome-stable_current_amd64.deb
+     
+     sudo -k apt install chromium-browser
+     
+     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.9.818.50-1_amd64.deb
+     sudo dpkg -i vivaldi-stable_1.9.818.50-1_amd64.deb
+     rm vivaldi-stable_1.9.818.50-1_amd64.deb
    fi
 sleep 1
 clear
 
 # Communication Tools
 # -------------
-
+echo "-------------------------------"
+echo "Install your communication tools of choice"
+echo ""
+echo "[1] Telegram snap"
+echo "-------------------------------"
+echo ""
+echo -n "Enter choice; "; read commchoice
+   if [ "$commchoice" = "1" ]; then
+    sudo snap install telegram-sergiusens 
 
 # Graphics selection
 # -------------
@@ -175,7 +195,6 @@ sleep 1
 
 # Snaps
 # -------------
-sudo snap install telegram-sergiusens 
 
 # Fixing dep issues
 # ------------
