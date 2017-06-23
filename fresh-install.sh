@@ -195,6 +195,16 @@ sleep 1
 
 # Snaps
 # -------------
+echo "-------------"
+echo "Misc snaps"
+echo "-------------"
+echo "[1] Atom text editor"
+echo -n "Enter choice: "; read snapchoice
+    if [ "$snapchoice" = "1" ] then
+      sudo snap install atom --classic
+    fi
+sleep 1
+clear
 
 # Fixing dep issues
 # ------------
