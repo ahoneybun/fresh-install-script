@@ -6,7 +6,7 @@ A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-too
 Options
 -------
 Browsers
-- [x] Chrome
+- Chrome
 - [x] Chromium
 - [x] Vivaldi
 
