@@ -7,20 +7,23 @@ Options
 -------
 Browsers
 - Chrome
-- [x] Chromium
-- [x] Vivaldi
+- Chromium
+- Vivaldi
 
 Graphics
-- [x] GIMP
-- [x] Inkscape
-- [x] Inkscape snap devel
+- GIMP
+- Inkscape
+- Inkscape snap devel
 
 Audio/Video tools
-- [x] kdenlive
-- [x] kdenlive ppa
-- [x] kdenlive snap devel
-- [x] Audacity
+- kdenlive
+- kdenlive ppa
+- kdenlive snap devel
+- Audacity
 
 Office Suites
-- [x] LibreOffice
-- [x] Calligra
+- LibreOffice
+- Calligra
+
+Snaps
+- Atom text editor (classic containment)
