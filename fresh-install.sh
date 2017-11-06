@@ -180,15 +180,15 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "pastebinit, bzr, !virtualbox, htop"
+echo "pastebinit, bzr, virtualbox, htop"
 sudo apt install pastebinit bzr htop
 
 # Downloading virtualbox and rememberthemilk
-#  wget http://download.virtualbox.org/virtualbox/5.1.6/virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+wget http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
-   #sudo dpkg -i virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
-   #rm virtualbox-5.1_5.1.6-110634~Ubuntu~xenial_amd64.deb
+sudo dpkg -i virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+rm virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #   sudo dpkg -i rememberthemilk-1.1.1.deb
 #   rm rememberthemilk-1.1.1.deb
 sleep 1
