@@ -55,8 +55,7 @@ echo ""
 echo -n "Enter choice: "; read browserchoice
    if [ "$browserchoice" = "1" ]; then 
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-     sudo dpkg -i google-chrome-stable_current_amd64.deb
-     sudo apt -f install
+     sudo apt-get install google-chrome-stable_current_amd64.deb
      rm google-chrome-stable_current_amd64.deb
     elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
@@ -66,8 +65,7 @@ echo -n "Enter choice: "; read browserchoice
      rm vivaldi-stable_1.9.818.50-1_amd64.deb
     elif [ "$browserchoice" = "4" ]; then
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-     sudo dpkg -i google-chrome-stable_current_amd64.deb
-     sudo apt -f install
+     sudo apt-get install google-chrome-stable_current_amd64.deb
      rm google-chrome-stable_current_amd64.deb
      
      sudo -k apt install chromium-browser
@@ -187,7 +185,7 @@ sudo apt install pastebinit bzr htop
 wget http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
-sudo dpkg -i virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+sudo apt-get install virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 rm virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #   sudo dpkg -i rememberthemilk-1.1.1.deb
 #   rm rememberthemilk-1.1.1.deb
