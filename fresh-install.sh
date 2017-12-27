@@ -82,12 +82,12 @@ clear
 echo "-------------------------------"
 echo "Install your communication tools of choice"
 echo ""
-echo "[1] Telegram snap"
+echo "[1] Telegram"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice; "; read commchoice
    if [ "$commchoice" = "1" ]; then
-    sudo snap install telegram-sergiusens 
+    sudo apt install telegram-desktop 
 
 # Graphics selection
 # -------------
@@ -127,6 +127,7 @@ echo "[1a] kdenlive PPA"
 echo "[1b] kdenlive snap"
 echo "[2] Audacity"
 echo "[3] kdenlive & Audacity"
+echo "[4] VLC"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read avchoice
@@ -142,6 +143,8 @@ echo -n "Enter choice: "; read avchoice
        sudo apt install audacity
       elif [ "$avchoice" = "3" ]; then
        sudo apt install kdenlive audacity
+      elif [ "$avchoice" = "4" ]; then
+       sudo apt install vlc
     fi
 sleep 1
 clear
