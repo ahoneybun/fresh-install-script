@@ -60,9 +60,9 @@ echo -n "Enter choice: "; read browserchoice
     elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
-     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.9.818.50-1_amd64.deb
-     sudo dpkg -i vivaldi-stable_1.9.818.50-1_amd64.deb
-     rm vivaldi-stable_1.9.818.50-1_amd64.deb
+     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.15.1147.36-1_amd64.deb
+     sudo dpkg -i vivaldi-stable_1.15.1147.36-1_amd64.deb
+     rm vivaldi-stable_1.15.1147.36-1_amd64.deb
     elif [ "$browserchoice" = "4" ]; then
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo apt-get install google-chrome-stable_current_amd64.deb
@@ -70,9 +70,9 @@ echo -n "Enter choice: "; read browserchoice
      
      sudo -k apt install chromium-browser
      
-     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.9.818.50-1_amd64.deb
-     sudo dpkg -i vivaldi-stable_1.9.818.50-1_amd64.deb
-     rm vivaldi-stable_1.9.818.50-1_amd64.deb
+     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.15.1147.36-1_amd64.deb
+     sudo dpkg -i vivaldi-stable_1.15.1147.36-1_amd64.deb
+     rm vivaldi-stable_1.15.1147.36-1_amd64.deb
    fi
 sleep 1
 clear
@@ -96,8 +96,7 @@ echo "Install your graphics software of choice"
 echo ""
 echo "[1] GIMP"
 echo "[2] Inkscape"
-echo "[3] Inkscape snap (WIP)"
-echo "[4] Install all as Ubuntu/Debian packages"
+echo "[3] Install all as Ubuntu/Debian packages"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read graphicschoice
@@ -106,12 +105,7 @@ echo -n "Enter choice: "; read graphicschoice
      elif [ "$graphicschoice" = "2" ]; then
       sudo apt install inkscape
 # By default now you can't install a snap that is *not* signed, use with caution!
-      elif [ "$graphicschoice" = "3" ]; then
-echo "Installing inkscape snap with force as it is *not* signed"
-       wget https://launchpad.net/~inkscape-uploader/+snap/inkscape/+build/4986/+files/inkscape_0.91+devel_amd64.snap
-       sudo snap install --force-dangerous inkscape_0.91+devel_amd64.snap
-       rm inkscape_0.91+devel_amd64.snap
-     elif [ "$graphicschoice" = "4" ]; then
+     elif [ "$graphicschoice" = "3" ]; then
       sudo apt install gimp inkscape
   fi
 sleep 1
