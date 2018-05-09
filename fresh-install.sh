@@ -118,7 +118,6 @@ echo "Install your AV tools of choice"
 echo ""
 echo "[1] kdenlive"
 echo "[1a] kdenlive PPA"
-echo "[1b] kdenlive snap"
 echo "[2] Audacity"
 echo "[3] kdenlive & Audacity"
 echo "[4] VLC"
@@ -131,8 +130,6 @@ echo -n "Enter choice: "; read avchoice
        sudo add-apt-repository ppa:kdenlive/kdenlive-stable
        sudo apt update
        sudo apt install kdenlive
-      elif [ "$avchoice" = "1b" ]; then
-       sudo snap install --edge --force-dangerous --devmode kdenlive-devel
       elif [ "$avchoice" = "2" ]; then
        sudo apt install audacity
       elif [ "$avchoice" = "3" ]; then
