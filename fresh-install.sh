@@ -3,7 +3,8 @@
 # -------------
 echo "-------------------------------"
 echo "Welcome to your fresh" 
-awk 'FNR==2' /etc/os-release
+cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
+
 echo "-------------------------------"
 
 # apt update
@@ -60,9 +61,10 @@ echo -n "Enter choice: "; read browserchoice
     elif [ "$browserchoice" = "2" ]; then
      sudo -k apt install chromium-browser
     elif [ "$browserchoice" = "3" ]; then
-     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.15.1147.36-1_amd64.deb
-     sudo dpkg -i vivaldi-stable_1.15.1147.36-1_amd64.deb
-     rm vivaldi-stable_1.15.1147.36-1_amd64.deb
+    VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+     wget $VERSION
+     sudo dpkg -i $VERSION
+     rm $VERSION
     elif [ "$browserchoice" = "4" ]; then
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo apt-get install google-chrome-stable_current_amd64.deb
@@ -70,9 +72,10 @@ echo -n "Enter choice: "; read browserchoice
      
      sudo -k apt install chromium-browser
      
-     wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.15.1147.36-1_amd64.deb
-     sudo dpkg -i vivaldi-stable_1.15.1147.36-1_amd64.deb
-     rm vivaldi-stable_1.15.1147.36-1_amd64.deb
+     VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+     wget $VERSION
+     sudo dpkg -i $VERSION
+     rm $VERSION
    fi
 sleep 1
 clear
@@ -85,7 +88,7 @@ echo ""
 echo "[1] Telegram"
 echo "-------------------------------"
 echo ""
-echo -n "Enter choice; "; read commchoice
+echo -n "Enter choice: "; read commchoice
    if [ "$commchoice" = "1" ]; then
     sudo apt install telegram-desktop 
 
