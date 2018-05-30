@@ -55,6 +55,7 @@ echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
+while [ "$browserchoice" = "1-4" ]; do
    if [ "$browserchoice" = "1" ]; then
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo apt-get install google-chrome-stable_current_amd64.deb
@@ -80,6 +81,7 @@ echo -n "Enter choice: "; read browserchoice
    elif [ "$browserchoice" = "0"]; then
      exit
    fi
+done
 sleep 1
 clear
 
@@ -93,10 +95,14 @@ echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read commchoice
+while true [ "$commchoice" = "1" ]; do
    if [ "$commchoice" = "1" ]; then
     sudo apt install telegram-desktop
   elif [ "$commchoice" = "0"]; then
     exit
+done
+sleep 1
+clear
 
 # Graphics selection
 # -------------

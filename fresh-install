@@ -1,15 +1,15 @@
 #!/bin/bash
 
-zenity --title="Fresh Install tool"
+zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation." --width=250 --height=100
 
 # Trying to use this to add system info from the os-release file WIP
-versionStr=$(awk 'FNR==2' /etc/os-release)
+versionStr=$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')
 
 # Intro
-zenity --info --text="Welcome to your new Ubuntu system"
+zenity --info --title="Fresh Install Tool" --text="Welcome to your new $versionStr system." --width=300 --height=100
 
 # Running 'apt update'
-zenity --info --text="Let's make sure your sources are up to date" 
+zenity --info --title="Fresh Install Tool" --text="Let's make sure your sources are up to date." --width=300 --height=100
 zenity --password | sudo -Sk apt update
 
 # Snapd installation check
@@ -24,22 +24,23 @@ zenity --password | sudo -Sk apt update
 	  sudo apt-get install -qq -y snapd;
    fi
 
-# Browser choice 
+# Browser choice
 # -----------------
 browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
 	--title="browserchoices" --column="Pick" --column="Choices" \
 	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
 
 if [ "$browserchoice" = "Vivaldi" ]; then
-zenity --info --text="You have choosen Vivaldi"
-   wget https://downloads.vivaldi.com/stable/vivaldi-stable_1.3.551.38-1_amd64.deb
-zenity --password | sudo -Sk dpkg -i vivaldi-stable_1.3.551.38-1_amd64.deb
+zenity --info --text="You have choosen Vivaldi" --width=250 --height=100
+ VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+ wget $VERSION
+zenity --password | sudo -Sk dpkg -i $VERSION
 
 elif [ "$browserchoice" = "Chrome" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
    sudo dpkg -i google-chrome-stable_current_amd64.deb
    sudo apt -f install
-   
+
 elif [ "$browserchoice" = "Chromium" ]; then
    PASSWORD=$(zenity --password)
    echo $PASSWORD | sudo -S apt install chromium-browser
@@ -54,6 +55,10 @@ fi
 # -----------------
 graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
     --title="graphicchoice" --column="Pick" --column="Choices" \
-    FALSE GIMP None --separator=":")
+    FALSE GIMP FALSE Inkscape None --separator=":")
 
+if [ "$graphicchoice" = "GIMP" ]; then
+  zenity --info --text="You have choosen GIMP" --width=250 --height=100
+  zenity --password | sudo -Sk sudo apt install gimp
 
+fi
