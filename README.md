@@ -13,13 +13,11 @@ Browsers
 Graphics
 - GIMP
 - Inkscape
-- Inkscape snap devel
 
 Audio/Video tools
 - kdenlive
-- kdenlive ppa
-- kdenlive snap devel
 - Audacity
+- VLC
 
 Office Suites
 - LibreOffice

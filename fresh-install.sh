@@ -2,7 +2,7 @@
 # Intro
 # -------------
 echo "-------------------------------"
-echo "Welcome to your fresh" 
+echo "Welcome to your fresh"
 cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
 
 echo "-------------------------------"
@@ -51,10 +51,11 @@ echo "[1] Chrome"
 echo "[2] Chromuim"
 echo "[3] Vivaldi"
 echo "[4] All"
+echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read browserchoice
-   if [ "$browserchoice" = "1" ]; then 
+   if [ "$browserchoice" = "1" ]; then
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo apt-get install google-chrome-stable_current_amd64.deb
      rm google-chrome-stable_current_amd64.deb
@@ -69,13 +70,15 @@ echo -n "Enter choice: "; read browserchoice
      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
      sudo apt-get install google-chrome-stable_current_amd64.deb
      rm google-chrome-stable_current_amd64.deb
-     
+
      sudo -k apt install chromium-browser
-     
+
      VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
      wget $VERSION
      sudo dpkg -i $VERSION
      rm $VERSION
+   elif [ "$browserchoice" = "0"]; then
+     exit
    fi
 sleep 1
 clear
@@ -86,11 +89,14 @@ echo "-------------------------------"
 echo "Install your communication tools of choice"
 echo ""
 echo "[1] Telegram"
+echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read commchoice
    if [ "$commchoice" = "1" ]; then
-    sudo apt install telegram-desktop 
+    sudo apt install telegram-desktop
+  elif [ "$commchoice" = "0"]; then
+    exit
 
 # Graphics selection
 # -------------
@@ -99,7 +105,8 @@ echo "Install your graphics software of choice"
 echo ""
 echo "[1] GIMP"
 echo "[2] Inkscape"
-echo "[3] Install all as Ubuntu/Debian packages"
+echo "[3] All"
+echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read graphicschoice
@@ -110,6 +117,8 @@ echo -n "Enter choice: "; read graphicschoice
 # By default now you can't install a snap that is *not* signed, use with caution!
      elif [ "$graphicschoice" = "3" ]; then
       sudo apt install gimp inkscape
+    elif [ "$graphicschoice" = "0"];then
+      exit
   fi
 sleep 1
 clear
@@ -124,6 +133,7 @@ echo "[1a] kdenlive PPA"
 echo "[2] Audacity"
 echo "[3] kdenlive & Audacity"
 echo "[4] VLC"
+echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read avchoice
@@ -139,6 +149,8 @@ echo -n "Enter choice: "; read avchoice
        sudo apt install kdenlive audacity
       elif [ "$avchoice" = "4" ]; then
        sudo apt install vlc
+     elif [ "$avchoice" = "0"];then
+       exit
     fi
 sleep 1
 clear
@@ -150,6 +162,7 @@ echo "Install your office suite of choice"
 echo ""
 echo "[1] Calligra"
 echo "[2] LibreOffice"
+echo "[0] Next"
 echo "-------------------------------"
 echo ""
 echo -n "Enter choice: "; read officechoice
@@ -157,6 +170,8 @@ echo -n "Enter choice: "; read officechoice
     sudo apt install calligra
      elif [ "$officechoice" = "2" ]; then
       sudo apt install libreoffice
+    elif [ "$officechoice" = "0"];then
+      exit
    fi
 sleep 1
 clear
@@ -179,14 +194,14 @@ echo "pastebinit, bzr, virtualbox, htop"
 sudo apt install pastebinit bzr htop
 
 # Downloading virtualbox and rememberthemilk
-wget http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+#wget http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #  wget https://www.rememberthemilk.com/download/linux/debian/pool/main/r/rememberthemilk/rememberthemilk-1.1.1.deb
 # Installing virtualbox and rememberthemilk
-sudo apt-get install virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
-rm virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+#sudo apt-get install virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+#rm virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 #   sudo dpkg -i rememberthemilk-1.1.1.deb
 #   rm rememberthemilk-1.1.1.deb
-sleep 1
+#sleep 1
 
 # Snaps
 # -------------
@@ -194,16 +209,23 @@ echo "-------------"
 echo "Misc snaps"
 echo "-------------"
 echo "[1] Atom text editor"
+echo "[0] Next"
+echo "-------------------------------"
+echo ""
 echo -n "Enter choice: "; read snapchoice
     if [ "$snapchoice" = "1" ] then
       sudo snap install atom --classic
+    elif [ "$snapchoice" = "0"];then
+      exit
     fi
 sleep 1
 clear
 
 # Fixing dep issues
+# and removing old packages
 # ------------
 sudo apt -f install
+sudo apt autoremove
 clear
 echo "-------------------------------"
 echo "Have a productive and happy day!"
