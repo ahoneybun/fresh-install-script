@@ -25,3 +25,9 @@ Office Suites
 
 Snaps
 - Atom text editor (classic containment)
+
+Future ideas:
+
+[ ] - Add git prompt to system:
+
+https://github.com/magicmonty/bash-git-prompt
