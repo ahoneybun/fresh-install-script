@@ -26,9 +26,13 @@ echo "-------------------------------"
 echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
-sudo -k apt upgrade
+sleep 3
+sudo apt -k upgrade
 sleep 1
+echo "Clearing the screen"
+sleep 2
 clear
+
 
 # Communication Tools
 # --------------------
