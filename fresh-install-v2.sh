@@ -4,7 +4,6 @@
 echo "-------------------------------"
 echo "Welcome to your fresh"
 cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
-
 echo "-------------------------------"
 
 # Updating
@@ -16,7 +15,7 @@ echo "-------------------------------"
 sleep 3
 sudo apt update
 sleep 1
-echo "Clearing the screen"
+echo "*Clearing the screen*"
 sleep 2
 clear
 
@@ -26,8 +25,11 @@ echo "-------------------------------"
 echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
+sleep 3
 sudo -k apt upgrade
 sleep 1
+echo "*Clearing the screen*"
+sleep 2
 clear
 
 # Communication Tools
@@ -45,7 +47,7 @@ while true [ "$commchoice" = "1" ]; do
     sudo apt install telegram-desktop
   elif [ "$commchoice" = "0"]; then
     exit
-done
+ fi
 sleep 1
 clear
 
