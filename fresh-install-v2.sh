@@ -2,8 +2,13 @@
 # Intro
 # -------------
 echo "-------------------------------"
+<<<<<<< HEAD
 distro="$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')"
 echo "Welcome to your fresh" "${distro}"
+=======
+echo "Welcome to your fresh"
+cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
+>>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 echo "-------------------------------"
 
 # Updating
@@ -15,7 +20,7 @@ echo "-------------------------------"
 sleep 3
 sudo apt update
 sleep 1
-echo "Clearing the screen"
+echo "*Clearing the screen*"
 sleep 2
 clear
 
@@ -26,9 +31,15 @@ echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
 sleep 3
+<<<<<<< HEAD
 sudo apt -k upgrade
 sleep 1
 echo "Clearing the screen"
+=======
+sudo -k apt upgrade
+sleep 1
+echo "*Clearing the screen*"
+>>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 sleep 2
 clear
 
@@ -46,8 +57,16 @@ echo -n "Enter choice: "; read option
 case "$option" in
 1)
     sudo apt install telegram-desktop
+<<<<<<< HEAD
 ;;
 *)
+=======
+  elif [ "$commchoice" = "0"]; then
+    exit
+ fi
+sleep 1
+clear
+>>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 
 # Graphics selection
 # -------------------
