@@ -2,13 +2,8 @@
 # Intro
 # -------------
 echo "-------------------------------"
-<<<<<<< HEAD
 distro="$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')"
 echo "Welcome to your fresh" "${distro}"
-=======
-echo "Welcome to your fresh"
-cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
->>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 echo "-------------------------------"
 
 # Updating
@@ -31,15 +26,9 @@ echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
 sleep 3
-<<<<<<< HEAD
-sudo apt -k upgrade
-sleep 1
-echo "Clearing the screen"
-=======
 sudo -k apt upgrade
 sleep 1
 echo "*Clearing the screen*"
->>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 sleep 2
 clear
 
@@ -53,20 +42,14 @@ echo "[1] Telegram"
 echo "[0] Next"
 echo "-------------------------------"
 echo ""
-echo -n "Enter choice: "; read option
-case "$option" in
-1)
-    sudo apt install telegram-desktop
-<<<<<<< HEAD
-;;
-*)
-=======
-  elif [ "$commchoice" = "0"]; then
-    exit
- fi
+echo -n "Enter choice: "; read commoption
+case "$commoption" in
+1) sudo apt install telegram-desktop
+   ;;
+*) echo "Next option";;
+esac
 sleep 1
 clear
->>>>>>> 1c6d019681b6f18f8f7d46a8809630c0eabdbebd
 
 # Graphics selection
 # -------------------
@@ -79,17 +62,16 @@ echo "[3] All"
 echo "[0] Next"
 echo "-------------------------------"
 echo ""
-echo -n "Enter choice: "; read graphicschoice
-   if [ "$graphicschoice" = "1" ]; then
-    sudo apt install gimp
-     elif [ "$graphicschoice" = "2" ]; then
-      sudo apt install inkscape
-# By default now you can't install a snap that is *not* signed, use with caution!
-     elif [ "$graphicschoice" = "3" ]; then
-      sudo apt install gimp inkscape
-    elif [ "$graphicschoice" = "0"];then
-      exit
-  fi
+echo -n "Enter choice: "; read graphicoption
+case "$graphicoption" in
+1) sudo apt install gimp
+   ;;
+2) sudo apt install inkscape
+   ;;
+3) sudo apt install gimp inkscape
+   ;;
+*) echo "Next option";;
+esac
 sleep 1
 clear
 
