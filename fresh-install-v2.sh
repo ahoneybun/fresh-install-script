@@ -2,9 +2,8 @@
 # Intro
 # -------------
 echo "-------------------------------"
-echo "Welcome to your fresh"
-cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}'
-
+distro="$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')"
+echo "Welcome to your fresh" "${distro}"
 echo "-------------------------------"
 
 # Updating
@@ -43,15 +42,12 @@ echo "[1] Telegram"
 echo "[0] Next"
 echo "-------------------------------"
 echo ""
-echo -n "Enter choice: "; read commchoice
-while true [ "$commchoice" = "1" ]; do
-   if [ "$commchoice" = "1" ]; then
+echo -n "Enter choice: "; read option
+case "$option" in
+1)
     sudo apt install telegram-desktop
-  elif [ "$commchoice" = "0"]; then
-    exit
-done
-sleep 1
-clear
+;;
+*)
 
 # Graphics selection
 # -------------------

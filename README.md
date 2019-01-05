@@ -3,28 +3,8 @@ A script to help me update, upgrade and install my most used software in a quick
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
-Options
+Options (WIP v2)
 -------
-Browsers
-- Chrome
-- Chromium
-- Vivaldi
-
-Graphics
-- GIMP
-- Inkscape
-
-Audio/Video tools
-- kdenlive
-- Audacity
-- VLC
-
-Office Suites
-- LibreOffice
-- Calligra
-
-Snaps
-- Atom text editor (classic containment)
 
 Future ideas:
 
