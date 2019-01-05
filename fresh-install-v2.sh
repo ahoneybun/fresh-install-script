@@ -81,7 +81,7 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "fish"
+echo "fish and virtualbox"
 echo "-------------------------------"
 echo ""
 wget https://github.com/fish-shell/fish-shell/releases/download/3.0.0/fish-3.0.0.tar.gz
@@ -90,6 +90,9 @@ cd fish-3.0.0/
 ./configure && make && sudo make install
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
+
+wget https://download.virtualbox.org/virtualbox/6.0.0/virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
+sudo dpkg -i virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 
 # Fixing dep issues
 # and removing old packages
@@ -101,6 +104,7 @@ echo ""
 sudo apt -f install
 sudo apt autoremove
 rm -r fish-3.0.0 && rm -r fish-3.0.0.tar.gz
+rm virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 clear
 echo "---------------------------------"
 echo "Have a productive and happy day!"
