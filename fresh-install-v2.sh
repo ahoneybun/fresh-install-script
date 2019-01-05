@@ -13,11 +13,10 @@ echo "--------------------------------------------"
 echo "Let's make sure your sources are up to date"
 echo "running apt update"
 echo "--------------------------------------------"
-sleep 3
 sudo apt update
-sleep 1
+sleep 3
 echo "*Clearing the screen*"
-sleep 2
+sleep 1
 clear
 
 # Upgrading
@@ -26,11 +25,10 @@ echo "-------------------------------"
 echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
-sleep 3
 sudo -k apt upgrade
-sleep 1
+sleep 3
 echo "*Clearing the screen*"
-sleep 2
+sleep 1
 clear
 
 
@@ -81,9 +79,10 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "fish and virtualbox"
+echo "fish (gcc, make, g++, libncurses5) and virtualbox"
 echo "-------------------------------"
 echo ""
+sudo apt install gcc make g++ libncurses5-dev
 wget https://github.com/fish-shell/fish-shell/releases/download/3.0.0/fish-3.0.0.tar.gz
 tar -xvf fish-3.0.0.tar.gz
 cd fish-3.0.0/
