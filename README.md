@@ -14,6 +14,7 @@ Options (WIP v2)
 
 # Dev Tools
 - Downloads Fish 3.0.0 release, installs dependencies, compiles it and sets it as the default shell.
+- Downloads and installs virtualbox latest release. (6.0 as of this update)
 
 Future ideas:
 
