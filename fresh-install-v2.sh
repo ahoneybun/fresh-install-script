@@ -2,9 +2,12 @@
 # Intro
 # -------------
 echo "------------------------------------------------------------------"
+echo "Welcome to version 2.0 of the FIS"
 distro="$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')"
 echo "Welcome to your fresh" "${distro}"
 echo "------------------------------------------------------------------"
+sleep 3
+clear
 
 # Updating
 # -------------
