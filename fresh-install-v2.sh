@@ -34,7 +34,6 @@ echo "*Clearing the screen*"
 sleep 1
 clear
 
-
 # Communication Tools
 # --------------------
 echo "-------------------------------"
@@ -82,7 +81,7 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "fish (gcc, make, g++, libncurses5) and virtualbox"
+echo "fish (gcc, make, g++, libncurses5), virtualbox and Chrome"
 echo "-------------------------------"
 echo ""
 sudo apt install gcc make g++ libncurses5-dev
@@ -96,6 +95,9 @@ chsh -s /usr/local/bin/fish
 wget https://download.virtualbox.org/virtualbox/6.0.0/virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 sudo dpkg -i virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt-get install google-chrome-stable_current_amd64.deb
+
 # Fixing dep issues
 # and removing old packages
 # --------------------------
@@ -107,6 +109,7 @@ sudo apt -f install
 sudo apt autoremove
 rm -r fish-3.0.0 && rm -r fish-3.0.0.tar.gz
 rm virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 clear
 echo "---------------------------------"
 echo "Have a productive and happy day!"

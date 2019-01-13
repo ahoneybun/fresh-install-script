@@ -1,9 +1,9 @@
-# fresh-install-script
+# fresh-install-script-v2.0
 A script to help me update, upgrade and install my most used software in a quick and clean manner.
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
-Options (WIP v2)
+Options
 -------
 # Communication Tools
 - Telegram
@@ -11,6 +11,7 @@ Options (WIP v2)
 # Graphics selection
 - GIMP
 - Inkscape
+- All
 
 # Dev Tools
 - Downloads Fish 3.0.0 release, installs dependencies, compiles it and sets it as the default shell.
