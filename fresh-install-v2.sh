@@ -80,7 +80,7 @@ clear
 echo "-------------------------------"
 echo "Installing some tools"
 echo ""
-echo "fish (gcc, make, g++, libncurses5), virtualbox and Chrome"
+echo "fish (gcc, make, g++, libncurses5), virtualbox and Chrome, Tilix"
 echo "-------------------------------"
 echo ""
 sudo apt install gcc make g++ libncurses5-dev
@@ -100,6 +100,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt-get install google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
+sudo apt install tilix
 # Fixing dep issues
 # and removing old packages
 # --------------------------
