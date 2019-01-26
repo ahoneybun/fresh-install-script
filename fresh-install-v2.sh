@@ -90,26 +90,26 @@ cd fish-3.0.0/
 ./configure && make && sudo make install
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
-rm -r fish-3.0.0 && rm -r fish-3.0.0.tar.gz
 
 wget https://download.virtualbox.org/virtualbox/6.0.0/virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 sudo dpkg -i virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
-rm virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt-get install google-chrome-stable_current_amd64.deb
-rm google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-sudo apt install tilix
 # Fixing dep issues
 # and removing old packages
 # --------------------------
 echo "-------------------------------------"
 echo "Now let's clean up some dependencies"
+echo "and some left over files"
 echo "-------------------------------------"
 echo ""
 sudo apt -f install
 sudo apt autoremove
+rm -r fish-3.0.0 && rm -r fish-3.0.0.tar.gz
+rm virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 clear
 echo "---------------------------------"
 echo "Have a productive and happy day!"
