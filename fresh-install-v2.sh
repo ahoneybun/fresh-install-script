@@ -33,6 +33,24 @@ echo "*Clearing the screen*"
 sleep 1
 clear
 
+echo "---------------------------------"
+echo "Restoring files from ExtraDrive1"
+echo "---------------------------------"
+
+# Setting username for path logic
+read -p 'Username: ' uservar
+
+echo "--------------------------------"
+echo "Mounting your ExtraDrive1"
+echo "--------------------------------"
+
+sudo mount /media/$uservar/ExtraDrive1
+sudo mount /dev/sda1 /media/$uservar/ExtraDrive1
+
+cp -r /media/$uservar/ExtraDrive1/Backups/Pictures/* /home/$uservar/Pictures/
+cp -r /media/$uservar/ExtraDrive1/Backups/Documents/* /home/$uservar/Documents/
+
+
 # Communication Tools
 # --------------------
 echo "-------------------------------"
@@ -111,7 +129,10 @@ rm -r fish-3.0.0 && rm -r fish-3.0.0.tar.gz
 rm virtualbox-6.0_6.0.0-127566~Ubuntu~bionic_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 clear
+
 echo "---------------------------------"
 echo "Have a productive and happy day!"
 echo "End of script"
 echo "---------------------------------"
+
+
