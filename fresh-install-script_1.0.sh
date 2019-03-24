@@ -1,12 +1,13 @@
 #!/bin/bash
 # Intro
 # -------------
+clear
 echo "------------------------------------------------------------------"
 echo "Welcome to version 2.0 of the FIS"
 distro="$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')"
 echo "Welcome to your fresh" "${distro}"
 echo "------------------------------------------------------------------"
-sleep 3
+sleep 2
 clear
 
 # Updating
@@ -16,9 +17,7 @@ echo "Let's make sure your sources are up to date"
 echo "running apt update"
 echo "--------------------------------------------"
 sudo apt update
-sleep 3
-echo "*Clearing the screen*"
-sleep 1
+sleep 2
 clear
 
 # Upgrading
@@ -28,9 +27,7 @@ echo "Installing upgrades"
 echo "running apt upgrade"
 echo "-------------------------------"
 sudo -k apt upgrade
-sleep 3
-echo "*Clearing the screen*"
-sleep 1
+sleep 2
 clear
 
 echo "---------------------------------"
