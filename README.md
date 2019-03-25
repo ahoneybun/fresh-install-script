@@ -1,10 +1,16 @@
-# fresh-install-script-v2.0
+# fresh-install-script_1.0
 A script to help me update, upgrade and install my most used software in a quick and clean manner.
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
 Options
 -------
+
+Restores the following directories:
+- Pictures
+- Documents
+- .ssh
+
 # Communication Tools
 - Telegram
 
