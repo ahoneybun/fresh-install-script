@@ -46,7 +46,7 @@ sudo mount /dev/sda1 /media/$uservar/ExtraDrive1
 
 cp -r /media/$uservar/ExtraDrive1/Backups/Pictures/* /home/$uservar/Pictures/
 cp -r /media/$uservar/ExtraDrive1/Backups/Documents/* /home/$uservar/Documents/
-
+cp -r /media/$uservar/ExtraDrive1/Backups/.ssh/* /home/$uservar/.ssh/
 
 # Communication Tools
 # --------------------
