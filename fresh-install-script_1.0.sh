@@ -46,6 +46,7 @@ sudo mount /dev/sda1 /media/$uservar/ExtraDrive1
 
 cp -r /media/$uservar/ExtraDrive1/Backups/Pictures/* /home/$uservar/Pictures/
 cp -r /media/$uservar/ExtraDrive1/Backups/Documents/* /home/$uservar/Documents/
+cp -r /media/$uservar/ExtraDrive1/Backups/Videos/* /home/$uservar/Videos/
 cp -r /media/$uservar/ExtraDrive1/Backups/.ssh/* /home/$uservar/.ssh/
 cp -r /media/$uservar/ExtraDrive1/Backups/.config/i3/* /home/$uservar/.config/i3/
 cp -r /media/$uservar/ExtraDrive1/Backups/.config/i3status/* /home/$uservar/.config/i3status/
