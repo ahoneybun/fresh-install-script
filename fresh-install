@@ -1,12 +1,13 @@
 #!/bin/bash
 
-zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation." --width=250 --height=100
-
-# Trying to use this to add system info from the os-release file WIP
+# Trying to use this to add system info from the os-release file 
 versionStr=$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')
 
 # Intro
 zenity --info --title="Fresh Install Tool" --text="Welcome to your new $versionStr system." --width=300 --height=100
+
+# Intro/2
+zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation." --width=250 --height=100
 
 # Running 'apt update'
 zenity --info --title="Fresh Install Tool" --text="Let's make sure your sources are up to date." --width=300 --height=100
@@ -14,14 +15,14 @@ zenity --password | sudo -Sk apt update
 
 # Snapd installation check
 # -----------------
-   if [ $(dpkg-query -W -f='${Status}' snapd 2>/dev/null | grep -c "ok installed") -eq 0 ];
+   if [ $(dpkg-query -W -f='${Status}' flatpak 2>/dev/null | grep -c "ok installed") -eq 0 ];
       then
 	echo ""
 	echo "First we have to install the necessary tools:"
 	echo ""
-	echo "  → snapd"
+	echo "  → flatpak"
 	echo ""
-	  sudo apt-get install -qq -y snapd;
+	  sudo apt-get install -qq -y flatpak;
    fi
 
 # Browser choice
@@ -58,7 +59,7 @@ graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
     FALSE GIMP FALSE Inkscape None --separator=":")
 
 if [ "$graphicchoice" = "GIMP" ]; then
-  zenity --info --text="You have choosen GIMP" --width=250 --height=100
+  zenity --info --text="After you enter your password GIMP will be installed" --width=250 --height=100
   zenity --password | sudo -Sk sudo apt install gimp
 
 fi
