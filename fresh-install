@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# Trying to use this to add system info from the os-release file 
-versionStr=$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')
-
 # Intro
-zenity --info --title="Fresh Install Tool" --text="Welcome to your new $versionStr system. Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
+zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
 # Running 'apt update'
 zenity --password | sudo -Sk apt update
 
-# Snapd installation check
+# Flatpak installation check
 # -----------------
    if [ $(dpkg-query -W -f='${Status}' flatpak 2>/dev/null | grep -c "ok installed") -eq 0 ];
       then
@@ -24,20 +21,26 @@ zenity --password | sudo -Sk apt update
 # Browser choice
 # -----------------
 browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
-	--title="browserchoices" --column="Pick" --column="Choices" \
-	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
+	--title="Browser Choices" --column="Pick" --column="Choices" \
+	FALSE Chrome FALSE Chromium FALSE All None --separator=":")
 
-if [ "$browserchoice" = "Vivaldi" ]; then
-   VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
-   wget $VERSION
-   zenity --password | sudo -Sk dpkg -i $VERSION
-
-elif [ "$browserchoice" = "Chrome" ]; then
+if [ "$browserchoice" = "Chrome" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
    sudo dpkg -i google-chrome-stable_current_amd64.deb
    sudo apt -f install
 
 elif [ "$browserchoice" = "Chromium" ]; then
+   zenity --password | sudo -Sk apt install -y chromium-browser
+
+elif [ "$browserchoice" = "All" ]; then
+   VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+   wget $VERSION
+   zenity --password | sudo -Sk dpkg -i $VERSION
+
+   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   sudo dpkg -i google-chrome-stable_current_amd64.deb
+   sudo apt -f install
+
    zenity --password | sudo -Sk apt install -y chromium-browser
 
 elif [ "$browserchoice" = "None" ]; then
@@ -48,7 +51,7 @@ fi
 # Graphics choice
 # -----------------
 graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
-    --title="graphicchoice" --column="Pick" --column="Choices" \
+    --title="Graphic Choices" --column="Pick" --column="Choices" \
     FALSE GIMP FALSE Inkscape FALSE All None --separator=":")
 
 if [ "$graphicchoice" = "GIMP" ]; then
@@ -68,14 +71,17 @@ fi
 # Comms choice
 # -----------------
 commchoice=$(zenity --list --width=500 --height=250 --checklist \
-   --title="commchoice" --column="Pick" --column="Choices" \
+   --title="Communication Choices" --column="Pick" --column="Choices" \
    FALSE Telegram FALSE Signal FALSE All None --separator=":")
 
 if [ "$commchoice" = "Telegram" ]; then
    zenity --password | sudo -Sk apt install -y telegram-desktop
 
+elif [ "$commchoice" = "Signal" ]; then
+   zenity --password | flatpak install -y --user signal 
+
 elif [ "$commchoice" = "All" ]; then
-   zenity --password | sudo -Sk apt install -y telegram-desktop 
+   zenity --password | sudo -Sk apt install -y telegram-desktop && flatpak install -y --user signal 
 
 elif [ "$commchoice" = "None" ]; then
    echo "No selection picked"
