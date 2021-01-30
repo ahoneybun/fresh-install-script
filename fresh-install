@@ -4,13 +4,9 @@
 versionStr=$(cat /etc/os-release | awk -F "\"" '/PRETTY_NAME/ {print $2}')
 
 # Intro
-zenity --info --title="Fresh Install Tool" --text="Welcome to your new $versionStr system." --width=300 --height=100
-
-# Intro/2
-zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation." --width=250 --height=100
+zenity --info --title="Fresh Install Tool" --text="Welcome to your new $versionStr system. Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
 # Running 'apt update'
-zenity --info --title="Fresh Install Tool" --text="Let's make sure your sources are up to date." --width=300 --height=100
 zenity --password | sudo -Sk apt update
 
 # Snapd installation check
@@ -32,10 +28,9 @@ browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --
 	FALSE Vivaldi FALSE Chrome FALSE Chromium FALSE None --separator=":")
 
 if [ "$browserchoice" = "Vivaldi" ]; then
-zenity --info --text="You have choosen Vivaldi" --width=250 --height=100
- VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
- wget $VERSION
-zenity --password | sudo -Sk dpkg -i $VERSION
+   VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+   wget $VERSION
+   zenity --password | sudo -Sk dpkg -i $VERSION
 
 elif [ "$browserchoice" = "Chrome" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -43,12 +38,10 @@ elif [ "$browserchoice" = "Chrome" ]; then
    sudo apt -f install
 
 elif [ "$browserchoice" = "Chromium" ]; then
-   PASSWORD=$(zenity --password)
-   echo $PASSWORD | sudo -S apt install chromium-browser
+   zenity --password | sudo -Sk apt install -y chromium-browser
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
-   graphicchoice
 
 fi
 
@@ -56,10 +49,18 @@ fi
 # -----------------
 graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
     --title="graphicchoice" --column="Pick" --column="Choices" \
-    FALSE GIMP FALSE Inkscape None --separator=":")
+    FALSE GIMP FALSE Inkscape FALSE All None --separator=":")
 
 if [ "$graphicchoice" = "GIMP" ]; then
-  zenity --info --text="After you enter your password GIMP will be installed" --width=250 --height=100
-  zenity --password | sudo -Sk sudo apt install gimp
+   zenity --password | sudo -Sk apt install -y gimp
+
+elif [ "$graphicchoice" = "Inkscape" ]; then
+   zenity --password | sudo -Sk apt install -y inkscape
+
+elif [ "$graphicchoice" = "All" ]; then
+   zenity --password | sudo -Sk apt install -y gimp inkscape
+
+elif [ "$graphicchoice" = "None" ]; then
+   echo "No selection picked"
 
 fi
