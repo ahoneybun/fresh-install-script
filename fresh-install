@@ -87,3 +87,23 @@ elif [ "$commchoice" = "None" ]; then
    echo "No selection picked"
 
 fi
+
+# Dev choices
+# -----------------
+devchoice=$(zenity --list --width=500 --height=250 --checklist \
+   --title="Development Choices" --column="Pick" --column="Choices" \
+   FALSE Kernel FALSE Terminal FALSE All None --separator=":")
+
+if [ "$devchoice" = "Kernel" ]; then
+   zenity --password | sudo -Sk apt install -y dwarves bison flex libssl-dev libelf-dev
+
+elif [ "$devchoice" = "Terminal" ]; then
+   zenity --password | sudo -Sk apt install -y fish
+
+elif [ "$devchoice" = "All" ]; then
+   zenity --password | sudo -Sk apt install -y fish libncurses5-dev dwarves bison flex libssl-dev libelf-dev
+
+elif [ "$devchoice" = "None" ]; then
+   echo "No selection picked"
+
+fi
