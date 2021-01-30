@@ -64,3 +64,20 @@ elif [ "$graphicchoice" = "None" ]; then
    echo "No selection picked"
 
 fi
+
+# Comms choice
+# -----------------
+commchoice=$(zenity --list --width=500 --height=250 --checklist \
+   --title="commchoice" --column="Pick" --column="Choices" \
+   FALSE Telegram FALSE Signal FALSE All None --separator=":")
+
+if [ "$commchoice" = "Telegram" ]; then
+   zenity --password | sudo -Sk apt install -y telegram-desktop
+
+elif [ "$commchoice" = "All" ]; then
+   zenity --password | sudo -Sk apt install -y telegram-desktop 
+
+elif [ "$commchoice" = "None" ]; then
+   echo "No selection picked"
+
+fi
