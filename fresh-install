@@ -22,26 +22,27 @@ zenity --password | sudo -Sk apt update
 # -----------------
 browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
 	--title="Browser Choices" --column="Pick" --column="Choices" \
-	FALSE Chrome FALSE Chromium FALSE All TRUE None --separator=":")
+	FALSE Chrome FALSE Brave FALSE All TRUE None --separator=":")
 
 if [ "$browserchoice" = "Chrome" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
    sudo dpkg -i google-chrome-stable_current_amd64.deb
    sudo apt -f install
 
-elif [ "$browserchoice" = "Chromium" ]; then
-   zenity --password | sudo -Sk apt install -y chromium-browser
-
+elif [ "$browserchoice" = "Brave" ]; then
+   zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
+   curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+   echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+   zenity --password | sudo -Sk apt install -y brave-browser
 elif [ "$browserchoice" = "All" ]; then
-   VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
-   wget $VERSION
-   zenity --password | sudo -Sk dpkg -i $VERSION
-
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
    sudo dpkg -i google-chrome-stable_current_amd64.deb
    sudo apt -f install
 
-   zenity --password | sudo -Sk apt install -y chromium-browser
+   zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
+   curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+   echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+   zenity --password | sudo -Sk apt install -y brave-browser
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
