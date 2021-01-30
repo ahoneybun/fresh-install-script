@@ -22,7 +22,7 @@ zenity --password | sudo -Sk apt update
 # -----------------
 browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
 	--title="Browser Choices" --column="Pick" --column="Choices" \
-	FALSE Chrome FALSE Chromium FALSE All None --separator=":")
+	FALSE Chrome FALSE Chromium FALSE All TRUE None --separator=":")
 
 if [ "$browserchoice" = "Chrome" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -52,7 +52,7 @@ fi
 # -----------------
 graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
     --title="Graphic Choices" --column="Pick" --column="Choices" \
-    FALSE GIMP FALSE Inkscape FALSE All None --separator=":")
+    FALSE GIMP FALSE Inkscape FALSE All TRUE None --separator=":")
 
 if [ "$graphicchoice" = "GIMP" ]; then
    zenity --password | sudo -Sk apt install -y gimp
@@ -72,7 +72,7 @@ fi
 # -----------------
 commchoice=$(zenity --list --width=500 --height=250 --checklist \
    --title="Communication Choices" --column="Pick" --column="Choices" \
-   FALSE Telegram FALSE Signal FALSE All None --separator=":")
+   FALSE Telegram FALSE Signal FALSE All TRUE None --separator=":")
 
 if [ "$commchoice" = "Telegram" ]; then
    zenity --password | sudo -Sk apt install -y telegram-desktop
@@ -92,7 +92,7 @@ fi
 # -----------------
 devchoice=$(zenity --list --width=500 --height=250 --checklist \
    --title="Development Choices" --column="Pick" --column="Choices" \
-   FALSE Kernel FALSE Terminal FALSE All None --separator=":")
+   FALSE Kernel FALSE Terminal FALSE All TRUE None --separator=":")
 
 if [ "$devchoice" = "Kernel" ]; then
    zenity --password | sudo -Sk apt install -y dwarves bison flex libssl-dev libelf-dev
