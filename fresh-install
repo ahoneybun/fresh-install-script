@@ -4,19 +4,10 @@
 zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
 # Running 'apt update'
-zenity --password | sudo -Sk apt update
+zenity --password | sudo -Sk pacman -Syu
 
-# Flatpak installation check
-# -----------------
-   if [ $(dpkg-query -W -f='${Status}' flatpak 2>/dev/null | grep -c "ok installed") -eq 0 ];
-      then
-	echo ""
-	echo "First we have to install the necessary tools:"
-	echo ""
-	echo "  → flatpak"
-	echo ""
-	  sudo apt-get install -qq -y flatpak;
-   fi
+# Installing Git
+zenity --password | sudo -Sk pacman -S --noconfirm git
 
 # Browser choice
 # -----------------
@@ -25,9 +16,9 @@ browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --
 	FALSE Chrome FALSE Brave FALSE All TRUE None --separator=":")
 
 if [ "$browserchoice" = "Chrome" ]; then
-   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-   sudo dpkg -i google-chrome-stable_current_amd64.deb
-   sudo apt -f install
+   git clone https://aur.archlinux.org/google-chrome.git
+   cd google-chrome
+   makepkg -srcif
 
 elif [ "$browserchoice" = "Brave" ]; then
    zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
@@ -56,13 +47,13 @@ graphicchoice=$(zenity --list --width=500 --height=250 --checklist \
     FALSE GIMP FALSE Inkscape FALSE All TRUE None --separator=":")
 
 if [ "$graphicchoice" = "GIMP" ]; then
-   zenity --password | sudo -Sk apt install -y gimp
+   zenity --password | sudo -Sk pacman -S --noconfirm gimp
 
 elif [ "$graphicchoice" = "Inkscape" ]; then
-   zenity --password | sudo -Sk apt install -y inkscape
+   zenity --password | sudo -Sk pacman -S --noconfirm inkscape
 
 elif [ "$graphicchoice" = "All" ]; then
-   zenity --password | sudo -Sk apt install -y gimp inkscape
+   zenity --password | sudo -Sk pacman -S --noconfirm gimp inkscape
 
 elif [ "$graphicchoice" = "None" ]; then
    echo "No selection picked"
