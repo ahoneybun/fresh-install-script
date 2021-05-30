@@ -18,21 +18,21 @@ browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --
 if [ "$browserchoice" = "Chrome" ]; then
    git clone https://aur.archlinux.org/google-chrome.git
    cd google-chrome
-   makepkg -srcif
+   makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "Brave" ]; then
    git clone https://aur.archlinux.org/brave-bin.git
    cd brave-bin
-   makepkg -srcif
+   makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "All" ]; then
    git clone https://aur.archlinux.org/google-chrome.git
    cd google-chrome
-   makepkg -srcif
+   makepkg -srcif --noconfirm
    cd ../
    git clone https://aur.archlinux.org/brave-bin.git
    cd brave-bin
-   makepkg -srcif
+   makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
