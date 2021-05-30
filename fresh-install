@@ -21,19 +21,18 @@ if [ "$browserchoice" = "Chrome" ]; then
    makepkg -srcif
 
 elif [ "$browserchoice" = "Brave" ]; then
-   zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
-   curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-   echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
-   zenity --password | sudo -Sk apt install -y brave-browser
+   git clone https://aur.archlinux.org/brave-bin.git
+   cd brave-bin
+   makepkg -srcif
 
 elif [ "$browserchoice" = "All" ]; then
-   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-   sudo dpkg -i google-chrome-stable_current_amd64.deb
-   sudo apt -f install
-   zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
-   curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-   echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
-   zenity --password | sudo -Sk apt install -y brave-browser
+   git clone https://aur.archlinux.org/google-chrome.git
+   cd google-chrome
+   makepkg -srcif
+   cd ../
+   git clone https://aur.archlinux.org/brave-bin.git
+   cd brave-bin
+   makepkg -srcif
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
