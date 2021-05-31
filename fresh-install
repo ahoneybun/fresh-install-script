@@ -18,21 +18,21 @@ browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --
 if [ "$browserchoice" = "Chrome" ]; then
    git clone https://aur.archlinux.org/google-chrome.git
    cd google-chrome
-   makepkg -srcif --noconfirm
+   zenity --password | yes | makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "Brave" ]; then
    git clone https://aur.archlinux.org/brave-bin.git
    cd brave-bin
-   makepkg -srcif --noconfirm
+   zenity --password | yes | makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "All" ]; then
    git clone https://aur.archlinux.org/google-chrome.git
    cd google-chrome
-   makepkg -srcif --noconfirm
+   yes |makepkg -srcif --noconfirm
    cd ../
    git clone https://aur.archlinux.org/brave-bin.git
    cd brave-bin
-   makepkg -srcif --noconfirm
+   yes | makepkg -srcif --noconfirm
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
@@ -66,13 +66,13 @@ commchoice=$(zenity --list --width=500 --height=250 --checklist \
    FALSE Telegram FALSE Signal FALSE All TRUE None --separator=":")
 
 if [ "$commchoice" = "Telegram" ]; then
-   zenity --password | sudo -Sk apt install -y telegram-desktop
+   zenity --password | sudo -Sk pacman -S --noconfirm telegram-desktop
 
 elif [ "$commchoice" = "Signal" ]; then
    zenity --password | flatpak install -y --user signal 
 
 elif [ "$commchoice" = "All" ]; then
-   zenity --password | sudo -Sk apt install -y telegram-desktop && flatpak install -y --user signal 
+   zenity --password | sudo -Sk pacman -S --noconfirm telegram-desktop && flatpak install -y --user signal 
 
 elif [ "$commchoice" = "None" ]; then
    echo "No selection picked"
