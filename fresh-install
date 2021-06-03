@@ -3,6 +3,8 @@
 # Intro
 zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
+if [[ $(cat /etc/os-release | grep )'']]
+
 # Running 'apt update'
 zenity --password | sudo -Sk pacman -Syu
 
