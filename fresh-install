@@ -13,13 +13,13 @@ elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Ubuntu"* ]]; then
    echo "btw I use Ubuntu"
 
 # Running updates
-zenity --password | sudo -Sk apt update; sudo -Sk apt upgrade
+zenity --password | sudo -Sk apt update; sudo apt upgrade
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Pop"* ]]; then
    echo "btw I use Pop!_OS"
 
 # Running updates
-zenity --password | sudo -Sk apt update; sudo -Sk apt upgrade
+zenity --password | sudo -Sk apt update; sudo apt upgrade
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Arch Linux"* ]]; then
    echo "btw I use Arch"
