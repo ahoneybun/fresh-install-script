@@ -7,8 +7,8 @@ Support for the following distros:
 
 - [x] Arch (it *should* support Arch based distros as well)
 - [x] Fedora 
-- [x] Ubuntu (may or may not support Debian though elementary OS and Linux Mint should be fine)
 - [x] Pop!_OS. 
+- [x] Ubuntu (may or may not support Debian though elementary OS and Linux Mint should be fine)
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
