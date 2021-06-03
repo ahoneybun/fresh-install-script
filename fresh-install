@@ -3,9 +3,10 @@
 # Intro
 zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
-if [[ $(cat /etc/os-release | grep )'']]
+if [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Arch Linux"* ]]; then
+   echo "btw I use Arch"
 
-# Running 'apt update'
+# Running 'pacman -Syu'
 zenity --password | sudo -Sk pacman -Syu
 
 # Installing Git
@@ -98,5 +99,7 @@ elif [ "$devchoice" = "All" ]; then
 
 elif [ "$devchoice" = "None" ]; then
    echo "No selection picked"
+
+fi
 
 fi
