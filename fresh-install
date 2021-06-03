@@ -95,13 +95,13 @@ devchoice=$(zenity --list --width=500 --height=250 --checklist \
    FALSE Kernel FALSE Terminal FALSE All TRUE None --separator=":")
 
 if [ "$devchoice" = "Kernel" ]; then
-   zenity --password | sudo -Sk apt install -y dwarves bison flex libssl-dev libelf-dev
+   zenity --password | sudo -Sk pacman -S --noconfirm linux-headers
 
 elif [ "$devchoice" = "Terminal" ]; then
-   zenity --password | sudo -Sk apt install -y fish
+   zenity --password | sudo -Sk pacman -S --noconfirm fish
 
 elif [ "$devchoice" = "All" ]; then
-   zenity --password | sudo -Sk apt install -y fish libncurses5-dev dwarves bison flex libssl-dev libelf-dev
+   zenity --password | sudo -Sk pacman -S --noconfirm linux-headers fish 
 
 elif [ "$devchoice" = "None" ]; then
    echo "No selection picked"
