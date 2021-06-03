@@ -7,7 +7,7 @@ if [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Fedora 34 (Workstation Edi
    echo "btw I use Fedora"
 
 # Running updates
-zenity --password | sudo dnf update
+zenity --password | sudo -Sk dnf update
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Arch Linux"* ]]; then
    echo "btw I use Arch"
