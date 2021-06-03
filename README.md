@@ -1,7 +1,7 @@
 # Fresh Install Script
+Version 2.2
 
-A script to help me update, upgrade and install my most used software in a quick and clean manner.
+A script to help me update, upgrade and install my most used software in a quick and clean manner. This works with Arch, Fedora, Ubuntu and Pop!_OS. 
 
 A lot of the bash credit goes to Marius Quabeck for his awesome magic-device-tool: https://github.com/MariusQuabeck/magic-device-tool
 
-Version 2.0
