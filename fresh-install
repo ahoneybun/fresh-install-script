@@ -109,5 +109,3 @@ elif [ "$devchoice" = "None" ]; then
 fi
 
 fi
-
-fi
