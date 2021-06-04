@@ -46,7 +46,7 @@ elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Ubuntu"* ]]; then
    echo "btw I use Ubuntu"
 
    # Running updates
-   zenity --password | sudo -Sk apt update; sudo apt upgrade
+   zenity --password | sudo -Sk apt update; sudo -Sk apt upgrade
 
    # Browser choice
    # -----------------
