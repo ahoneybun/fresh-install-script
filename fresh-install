@@ -65,11 +65,11 @@ elif [ "$browserchoice" = "Brave" ]; then
    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
    zenity --password | sudo -Sk apt install -y brave-browser
 
-elif [ "browserchoice" = "Vivaldi" ]; then
-   VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
-     wget $VERSION
-     sudo dpkg -i $VERSION
-     rm $VERSION
+# elif [ "browserchoice" = "Vivaldi" ]; then
+#    VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+#      wget $VERSION
+#      sudo dpkg -i $VERSION
+#      rm $VERSION
 
 elif [ "$browserchoice" = "All" ]; then
    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -79,10 +79,10 @@ elif [ "$browserchoice" = "All" ]; then
    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
    zenity --password | sudo -Sk apt install -y brave-browser
-      VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
-     wget $VERSION
-     sudo dpkg -i $VERSION
-     rm $VERSION
+   #    VERSION=$(curl https://vivaldi.com/download/ -s | awk '/amd64.deb/ {print $3}' | cut -f2 -d"\"")
+   #   wget $VERSION
+   #   sudo dpkg -i $VERSION
+   #   rm $VERSION
 
 elif [ "$browserchoice" = "None" ]; then
    echo "No selection picked"
