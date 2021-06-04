@@ -3,11 +3,44 @@
 # Intro
 zenity --info --title="Fresh Install Tool" --text="Let's walk though what software you want on this installation. First we'll make sure your sources are up to date." --width=300 --height=100
 
+## Fedora
+
 if [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Fedora"* ]]; then
    echo "btw I use Fedora"
 
 # Running updates
 zenity --password | sudo -Sk dnf update
+
+# Browser choice
+# -----------------
+browserchoice=$(zenity --list --width=500 --height=250 --window-icon=question --checklist \
+	--title="Browser Choices" --column="Pick" --column="Choices" \
+	FALSE Chrome FALSE Brave FALSE All TRUE None --separator=":")
+
+if [ "$browserchoice" = "Chrome" ]; then
+   wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+   sudo rpm -i google-chrome-stable_current_x86_64.rpm
+
+# elif [ "$browserchoice" = "Brave" ]; then
+#    zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
+#    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+#    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
+#    zenity --password | sudo -Sk apt install -y brave-browser
+
+# elif [ "$browserchoice" = "All" ]; then
+#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+#    sudo rpm -i google-chrome-stable_current_x86_64.rpm
+#    zenity --password | sudo -Sk apt install -y apt-transport-https curl gnupg
+#    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+#    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update -m
+#    zenity --password | sudo -Sk apt install -y brave-browser
+
+elif [ "$browserchoice" = "None" ]; then
+   echo "No selection picked"
+
+fi
+
+## Ubuntu
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Ubuntu"* ]]; then
    echo "btw I use Ubuntu"
@@ -105,6 +138,8 @@ elif [ "$devchoice" = "None" ]; then
    echo "No selection picked"
 fi
 
+## Pop!_OS
+
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Pop"* ]]; then
    echo "btw I use Pop!_OS"
 
@@ -201,6 +236,8 @@ elif [ "$devchoice" = "None" ]; then
    echo "No selection picked"
 
 fi
+
+## Arch
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Arch Linux"* ]]; then
    echo "btw I use Arch"
