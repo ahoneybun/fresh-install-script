@@ -17,7 +17,19 @@ fn main() {
     window.set_default_size(500, 350);
     let label = Label::new(Some("Let's walk though what software you want on this installation. First we'll make sure your sources are up to date."));
     label.set_line_wrap(true);
-    window.add(&label);
+    let button = gtk::Button::with_label("Browsers");
+    // button.connect_clicked(
+
+    // )
+
+    let button2 = gtk::Button::with_label("Graphics");
+
+    let layout = gtk::Box::new(gtk::Orientation::Vertical, 5);
+
+    layout.add(&label);
+    layout.add(&button);
+    layout.add(&button2);
+    window.add(&layout);
     window.show_all();
     gtk::main();
 }
