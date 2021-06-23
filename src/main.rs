@@ -19,6 +19,7 @@ fn main() {
     let label = Label::new(Some("Let's walk though what software you want on this installation. First we'll make sure your sources are up to date."));
     label.set_line_wrap(true);
     let button = gtk::Button::with_label("Update");
+    
     button.connect_clicked(|_| {
         Command::new("sh")
                 .arg("-c")
