@@ -23,7 +23,7 @@ fn main() {
     button.connect_clicked(|_| {
         Command::new("sh")
                 .arg("-c")
-                .arg("sudo pacman -Syu");
+                .arg("sudo pacman -Syu --noconfirm");
         // println!("Clicked");
     });
 
