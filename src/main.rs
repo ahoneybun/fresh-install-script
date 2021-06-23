@@ -2,6 +2,7 @@ extern crate gtk;
 
 use gtk::prelude::*; // Import all the basic things
 use gtk::{Window, WindowType, Label};
+use std::process::Command;
 
 fn main() {
     if gtk::init().is_err() { //Initialize Gtk before doing anything with it
@@ -18,9 +19,10 @@ fn main() {
     let label = Label::new(Some("Let's walk though what software you want on this installation. First we'll make sure your sources are up to date."));
     label.set_line_wrap(true);
     let button = gtk::Button::with_label("Browsers");
-    // button.connect_clicked(
-
-    // )
+    button.connect_clicked(|_| {
+        Command::new("echo hello");
+        println!("Clicked");
+    });
 
     let button2 = gtk::Button::with_label("Graphics");
 
