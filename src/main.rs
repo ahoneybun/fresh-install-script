@@ -16,14 +16,14 @@ fn main() {
 
     window.set_title("Fresh Install Tool");
     window.set_default_size(500, 350);
-    let label = Label::new(Some("Let's walk though what software you want on this installation. First we'll make sure your sources are up to date."));
+    let label = Label::new(Some("Let's walk though what software you want on this installation."));
     label.set_line_wrap(true);
     let button = gtk::Button::with_label("Update");
     
     button.connect_clicked(|_| {
-        Command::new("sh")
-                .arg("-c")
-                .arg("sudo pacman -Syu --noconfirm");
+        Command::new("gnome-terminal")
+                .spawn()
+                .expect("GNOME Terminal failed to start");
         // println!("Clicked");
     });
 
