@@ -24,7 +24,6 @@ fn main() {
         Command::new("gnome-terminal")
                 .spawn()
                 .expect("GNOME Terminal failed to start");
-        // println!("Clicked");
     });
 
     let layout = gtk::Box::new(gtk::Orientation::Vertical, 5);
