@@ -8,10 +8,14 @@ zenity --info --title="Fresh Install Tool" --text="Let's walk though what softwa
 if [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Fedora"* ]]; then
    echo "btw I use Fedora"
 
+   lib/fedora.sh
+
 ## Ubuntu
 
 elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Ubuntu"* ]]; then
    echo "btw I use Ubuntu"
+
+   lib/ubuntu.sh
 
 ## Pop!_OS
 
@@ -24,5 +28,7 @@ elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Pop"* ]]; then
 
    elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Arch Linux"* ]]; then
       echo "btw I use Arch"
+
+      lib/arch.sh
 
 fi
