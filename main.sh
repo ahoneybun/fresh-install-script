@@ -31,4 +31,11 @@ elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Pop"* ]]; then
 
       lib/arch.sh
 
+## Garuda
+
+   elif [[ $(grep PRETTY /etc/os-release | cut -c 13-) = *"Garuda Linux"* ]]; then
+      echo "btw I use Garuda (cause I can't install Arch)"
+
+      lib/garuda.sh
+
 fi
